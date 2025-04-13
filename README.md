@@ -17,7 +17,7 @@ bash install.sh
 ```bash
 rc-service x-ui stop
 rc-update del x-ui
-rm -rf /usr/local/x-ui /usr/bin/x-ui /x-ui /etc/init.d/x-ui
+rm -rf /usr/local/x-ui /usr/bin/x-ui /etc/init.d/x-ui
 ```
 ---
 显示设置
