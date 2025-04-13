@@ -9,7 +9,7 @@ apk add bash wget
 ---
 安装:
 ```bash
-wget https://github.com/0031400/3x-ui/raw/refs/heads/main/install.sh
+wget https://github.com/aaalpineee/3x-ui/raw/refs/heads/main/install.sh
 bash install.sh
 ```
 ---
