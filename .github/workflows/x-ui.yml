@@ -1,0 +1,49 @@
+name: x-ui alpine
+on:
+  workflow_dispatch:
+jobs:
+  alpine-x-ui:
+    runs-on: ubuntu-latest   
+    container:
+      image: alpine:latest
+      options: --entrypoint "" 
+    steps:
+        - name: install golang
+          run: |
+            apk update
+            apk upgrade
+            apk add wget  gcc g++
+            mkdir /root/golang
+            cd /root/golang
+            wget https://go.dev/dl/go1.24.2.linux-amd64.tar.gz
+            tar xf go1.24.2.linux-amd64.tar.gz
+        - name: pull git repo
+          run: |
+            cd /root
+            wget https://github.com/MHSanaei/3x-ui/archive/refs/heads/main.zip
+            unzip main.zip
+        - name: env
+          run: |
+        - name: build
+          run: |
+            cd /root/3x-ui-main
+            export PATH=/root/golang/go/bin:$PATH
+            CGO_ENABLED=1 go build
+            gzip x-ui
+        - name: xray-core
+          run: |
+            mkdir /root/xray
+            cd /root/xray
+            wget https://github.com/XTLS/Xray-core/releases/download/v25.3.6/Xray-linux-64.zip
+            unzip Xray-linux-64.zip
+            gzip xray geosite.dat geoip.dat
+        - name: upload
+          uses: softprops/action-gh-release@v2
+          with:
+            token: ${{ secrets.token }}
+            tag_name: v1.0
+            files: |
+              /root/xray/xray.gz
+              /root/xray/geosite.dat.gz
+              /root/xray/geoip.dat.gz
+              /root/3x-ui-main/x-ui.gz
