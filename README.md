@@ -13,8 +13,8 @@ wget https://github.com/aaalpineee/3x-ui/raw/refs/heads/main/install.sh
 bash install.sh
 ```
 ---
-卸载
-**卸载面板没有删除数据库**
+卸载  
+**卸载面板没有删除数据库**  
 ```bash
 rc-service x-ui stop
 rc-update del x-ui
