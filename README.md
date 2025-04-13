@@ -14,6 +14,7 @@ bash install.sh
 ```
 ---
 卸载
+**卸载面板没有删除数据库**
 ```bash
 rc-service x-ui stop
 rc-update del x-ui
@@ -39,4 +40,10 @@ rm -rf /usr/local/x-ui /usr/bin/x-ui /etc/init.d/x-ui
 /usr/local/x-ui/x-ui setting -username 新用户名 -password 新密码
 /usr/local/x-ui/x-ui setting -webBasePath 新路径
 /usr/local/x-ui/x-ui setting -port 新端口
+```
+---
+重置数据库
+**卸载面板没有删除数据库**
+```bash
+rm -rf /etc/x-ui
 ```
