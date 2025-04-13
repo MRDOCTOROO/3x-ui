@@ -1,6 +1,8 @@
 #! /bin/bash
 rm install.sh
 cd 
+rc-service x-ui stop
+rc-update del x-ui
 rm -rf /usr/bin/x-ui /usr/local/x-ui /etc/init.d/x-ui
 mkdir /usr/local/x-ui
 cd /usr/local/x-ui
