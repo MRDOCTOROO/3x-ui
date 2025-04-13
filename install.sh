@@ -25,4 +25,5 @@ chmod u+x /usr/bin/x-ui
 /usr/local/x-ui/x-ui setting -webBasePath $(tr -dc A-Za-z0-9 </dev/urandom | head -c 20)
 /usr/local/x-ui/x-ui setting -port $(( RANDOM % 64512 + 1024 ))
 /usr/local/x-ui/x-ui setting -show
+rc-service x-ui start
 cd 
