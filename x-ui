@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+
+description="x-ui service"
+
+command="/usr/local/x-ui/x-ui"
+command_args=""
+command_background=true
+pidfile="/run/x-ui.pid"
+directory="/usr/local/x-ui"
+
+depend() {
+    need net
+}
+
+start_pre() {
+    export XRAY_VMESS_AEAD_FORCED=false
+}
